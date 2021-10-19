@@ -39,14 +39,10 @@ def main():
                 mess = 1 / (sini * cosj2 * sinA + sinj * cosA + 5)
                 t = sini * cosj2 * cosA - sinj * sinA
 
-                # 40 is the left screen shift
+
                 x = int(40 + 30 * mess * (cosi * cosj2 * cosB - t * sinB))
-                # 12 is the down screen shift
                 y = int(11 + 15 * mess * (cosi * cosj2 * sinB + t * cosB))
-                # all are casted to int, ie floored
                 o = int(x + width * y)
-                # multiplying by 8 to bring in range 0-11 as 8*(sqrt(2))=11
-                # because we have 11 luminance characters
                 N = int(8 * ((sinj * sinA - sini * cosj * cosA) * cosB - sini * cosj * sinA - sinj * cosA - cosi * cosj * sinB))
 
                 if 0 < y < height and 0 < x < width and z[o] < mess:
@@ -60,7 +56,7 @@ def main():
             else:
                 print(char, end='')
 
-        # increments
+
         a += 0.04
         b += 0.02
 
